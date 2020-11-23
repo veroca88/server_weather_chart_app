@@ -1,6 +1,8 @@
+require('dotenv').config
 const axios = require('axios').default
 
-const url = "http://api.weatherstack.com/current?access_key=26ca489b8e9434a01f6f6f99ecd58876&query=Omaha"
+
+const url = `http://api.weatherstack.com/current?access_key=${API_WEATHERSTACK_KEY}&query=Omaha`
 
 axios({
     method: "GET",
