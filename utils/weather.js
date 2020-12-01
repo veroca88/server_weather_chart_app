@@ -11,9 +11,9 @@ const weatherCode = (latitude, longitude, callback) => {
             callback('Unable to connect to weather service!', undefined)
         }})
         .then(response => {
-           response === undefined ? 
+           response === undefined || response.data.error ? 
            callback('Unable to find location, try another search!', undefined) :
-           response === String ?
+           typeof(latitude) !== "number" || typeof(longitude) !== "number" ?
            callback('Please enter coordinates, latitude and longitude!') :
            callback(undefined, `Welcome to ${response.data.location.name} ${response.data.location.region}, today we have ${response.data.current.weather_descriptions}, 
            the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
