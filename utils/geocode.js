@@ -1,12 +1,12 @@
 const axios = require('axios')
+const key = require('./keys')
 
 const geoCode = (address, callback) => {
-    const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=pk.eyJ1IjoidmVyb2NhIiwiYSI6ImNraHV1bjdrcTA0dDQydG8ycDZtbjB4d3QifQ.nawxcghfx7Ce25Qpu3HO1w&limit=1`
+    const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${key.geoCode}&limit=1`
 
     axios.get(geoUrl)
     .catch(error => {
         if(error) {
-            console.log('=========error', error)
             callback('Unable to connect to location services!', undefined)
         }})
         .then(response => {
@@ -23,5 +23,11 @@ const geoCode = (address, callback) => {
         })
 }
 // geoCode(data, (callback error-data))
+
+
+// geoCode('Boston', (error, data) => {
+// console.log('error', error)
+// console.log('data', data)
+// })
 
 module.exports = geoCode
