@@ -15,7 +15,7 @@ const weatherCode = (latitude, longitude, callback) => {
            callback('Unable to find location, try another search!', undefined) :
            typeof(latitude) !== "number" || typeof(longitude) !== "number" ?
            callback('Please enter coordinates, latitude and longitude!') :
-           callback(undefined, `Today we have ${response.data.current.weather_descriptions}, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
+           callback(undefined, `Today we have a ${response.data.current.weather_descriptions} day, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
         })
     }
 
