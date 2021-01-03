@@ -7,19 +7,17 @@ const weatherCode = require('../utils/weather')
 
 
 let weatherMessage = ""
-router.get('/:location', async (req, res, next) => {
-    const weatherDetails = await Axios.get(weatherMessage)
-    res.json("====", weatherDetails)
+router.get('/', (req, res ) => {
+    res.render('weather')
 })
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
     const { location } = req.body
-    // console.log('============= post BACKEND', req.body, "location", location)
-        geoCode(location, (error, {latitude, longitude, location} = {}) => {
+        geoCode(location, (error, {longitude, latitude, location} = {}) => {
+            if (location === "Undefined" || location === undefined) return console.log('printing error', error)
             if (error) return console.log('printing error', error)
-            weatherCode(latitude, longitude, (error, weatherData) => {
+            // weatherCode(longitude, latitude, (error, weatherData) => {
+                weatherCode(location, (error, weatherData) => {
                     if (error) return console.log('printing error', error)
-                    console.log(location)
-                    console.log(weatherData)
                     weatherMessage = weatherMessage
                     res.json(weatherData)
                     })

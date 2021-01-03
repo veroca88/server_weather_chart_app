@@ -5,20 +5,18 @@ const geoCode = (address, callback) => {
     const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${key.geoCode.key}&limit=1`
 
     axios.get(geoUrl)
-    .catch(error => {
-        if(error) {
-            callback('Unable to connect to location services!', undefined)
-        }})
         .then(response => {
-            response.data.features[0] === undefined? 
+            response.data.features[0] === undefined || response.data.query[0] === 'undefined'? 
                 callback('Unable to find location, try another search!', undefined)
             : 
                 callback(undefined, {
-                latitude: response.data.features[0].center[1], 
-                longitude: response.data.features[0].center[0],
-                location: response.data.features[0].place_name
-                })
+                location: response.data.features[0].text
+            })
         })
+        .catch(error => {
+            if(error) {
+                callback('Unable to connect to location services!', undefined)
+            }})
 }
 
 module.exports = geoCode

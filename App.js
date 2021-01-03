@@ -23,6 +23,7 @@ app.use(
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
+  app.set('view engine', 'hbs')
   app.use(express.static(path.join(__dirname, "public")));
   
   app.use("/", searchLocationRouter);
@@ -42,5 +43,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.json('error');
 });
+
 
   module.exports = app;
