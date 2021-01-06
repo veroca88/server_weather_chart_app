@@ -24,4 +24,11 @@ router.post('/', (req, res) => {
         })
 })
 
+router.get('*', (req, res) => {
+    res.render('not-found', {
+        errorMessage: 'Please fill up the account form'
+    })
+})
+
+
 module.exports = router
