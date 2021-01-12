@@ -13,6 +13,11 @@ label {
 input {
   width: 75%;
 }
+
+#error {
+  margin-top: 200px;
+}
+
 .main_title {
   font-family: "Nerko One", cursive;
   font-size: calc(1rem + 3.6vw);
