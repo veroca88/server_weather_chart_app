@@ -12,14 +12,16 @@ router.get('/', (req, res ) => {
 })
 router.post('/', (req, res) => {
     const { location } = req.body
-        geoCode(location, (error, {longitude, latitude, location} = {}) => {
+        geoCode(location, (error, {location} = {}) => {
             if (location === "Undefined" || location === undefined) return console.log('printing error', error)
             if (error) return console.log('printing error', error)
             // weatherCode(longitude, latitude, (error, weatherData) => {
                 weatherCode(location, (error, weatherData) => {
                     if (error) return console.log('printing error', error)
-                    weatherMessage = weatherMessage
-                    res.json(weatherData)
+                    console.log('++++++++++++++++++inputWeather', weatherData)
+                    res.render('weather', {
+                        response: weatherData
+                    })
                     })
         })
 })

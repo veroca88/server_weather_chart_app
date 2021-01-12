@@ -13,7 +13,7 @@ const weatherCode = async (location, callback) => {
             callback('Unable to connect to weather service!', undefined)
         }})
         .then(response => {
-            console.log('Response from weather.js', response.data)
+            // console.log('Response from weather.js', response.data)
            response.data.success === 'false' || response.data === "Undefined" || response.data === undefined ? 
            callback('Unable to find location, try another search!', undefined) :
            callback(undefined, `Today in ${response.data.location.name}, ${response.data.location.country}, is a ${response.data.current.weather_descriptions} day, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
