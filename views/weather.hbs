@@ -1,14 +1,16 @@
-<form class="location_form" action="/" method="POST">
-    <label for="location">City</label>
-    <input id="location" type="text" name="location" placeholder="Yasuni">
-    <button class="btn">
-        <i type="submit" class="fas fa-search-location"></i>
-    </button>
-</form>
-<div>
-    {{#if response}}
-    <p>{{response}}</p>
-    {{else}}
-    <p>Search Cities!</p>
-    {{/if}}
+<div class="main_content">
+    <form class="location_form" action="/" method="POST">
+        <label for="location">City</label>
+        <input id="location" type="text" name="location" placeholder="Yasuni">
+        <button class="btn">
+            <i type="submit" class="fas fa-search-location"></i>
+        </button>
+    </form>
+    <div class="response">
+        {{#if response}}
+        <p>{{response}}</p>
+        {{else}}
+        <p>Search Cities!</p>
+        {{/if}}
+    </div>
 </div>
