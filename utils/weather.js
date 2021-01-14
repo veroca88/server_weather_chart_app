@@ -1,10 +1,7 @@
 require('dotenv').config()
 const axios =  require('axios')
 const key = require('./keys')
-// latitude, longitude,
 const weatherCode = async (location, callback) => { 
-    console.log('LOCATION', location)
-    // const url = `http://api.weatherstack.com/current?access_key=${key.weather.key}&query=${latitude},${longitude}&units=f`
     const url = `http://api.weatherstack.com/current?access_key=${key.weather.key}&query=${location}&units=f`
 
     await axios.get(url)
@@ -13,8 +10,8 @@ const weatherCode = async (location, callback) => {
             callback('Unable to connect to weather service!', undefined)
         }})
         .then(response => {
-            // console.log('Response from weather.js', response.data)
-           response.data.success === 'false' || response.data === "Undefined" || response.data === undefined ? 
+            console.log('Response from weather.js', response.data)
+           response.data.success === 'false' || !response.data ? 
            callback('Unable to find location, try another search!', undefined) :
            callback(undefined, `Today in ${response.data.location.name}, ${response.data.location.country}, is a ${response.data.current.weather_descriptions} day, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
         })
