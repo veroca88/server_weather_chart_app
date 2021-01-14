@@ -1,7 +1,7 @@
 {
   "name": "weather_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This app is create to check the weather an also see statistics\\* related to the weather too.   This app was created using Node.js, Axios, Chart.js, Mapbox API, weatherstack API.",
   "main": "app.js",
   "dependencies": {
     "axios": "^0.21.0",
@@ -22,5 +22,13 @@
     "start": "node ./bin/www"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veroca88/weather_chart_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veroca88/weather_chart_app/issues"
+  },
+  "homepage": "https://github.com/veroca88/weather_chart_app"
 }
