@@ -9,8 +9,13 @@
     <div class="response">
         {{#if response}}
         <p>{{response}}</p>
+        <p>{{location}} {{address}}</p>
         {{else}}
         <p>Search Cities!</p>
         {{/if}}
+
     </div>
+    {{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
 </div>
