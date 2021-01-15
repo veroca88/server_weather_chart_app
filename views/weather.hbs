@@ -18,4 +18,11 @@
     {{#if errorMessage}}
     <div class="error-message">{{ errorMessage }}</div>
     {{/if}}
+    <div>
+        {{#if image}}
+        <img class="weather_img" src={{image}} alt="weather_photo" />
+        {{else}}
+        <i class="fab fa-watchman-monitoring fa-5x"></i>
+        {{/if}}
+    </div>
 </div>
