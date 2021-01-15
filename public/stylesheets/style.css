@@ -30,11 +30,11 @@ input {
   position: absolute;
   left: 0;
   bottom: 0;
-  margin-left: 40%;
+  margin-left: 46%;
 }
 
 .location_form {
-  margin-top: 2%;
+  margin-top: 8%;
   display: flex;
   align-items: center;
   text-align: center;
