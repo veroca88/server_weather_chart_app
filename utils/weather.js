@@ -1,10 +1,11 @@
 require('dotenv').config()
 const axios =  require('axios')
-const weatherCode = async (location, callback) => { 
-    const key = process.env.API_WEATHERSTACK_KEY
+const weatherCode = (location, callback) => { 
+    console.log("WEATHER", location)
+    const key=process.env.API_WEATHERSTACK_KEY
     const url = `http://api.weatherstack.com/current?access_key=${key}&query=${location}&units=f`
 
-    await axios.get(url)
+    axios.get(url)
     .catch(error => {
         if(error) {
             callback('Unable to connect to weather service!', undefined)
