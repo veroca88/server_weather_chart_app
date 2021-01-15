@@ -26,8 +26,10 @@ input {
   font-size: calc(1rem + 3.6vw);
 }
 
-.main_content {
-  flex-grow: 1;
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .location_form {
@@ -42,6 +44,10 @@ input {
   margin-top: 5%;
 }
 
+.weather_img {
+  border-radius: 50%;
+  margin-top: 3%;
+}
 @media screen and (min-width: 768px) {
   input {
     width: 25%;
