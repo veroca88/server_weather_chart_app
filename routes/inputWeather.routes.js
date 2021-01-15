@@ -48,14 +48,14 @@ router.post('/', (req, res) => {
                     errorMessage: error})
                 return
             }
-            // weatherCode(longitude, latitude, (error, weatherData) => {
-                weatherCode(location, (error, weatherData) => {
+                weatherCode(location, (error, {weatherData, image}) => {
                     if (error) {('weather', {
                         errorMessage: error})
                     return
                 }
                     res.render('weather', {
-                        response: weatherData
+                        response: weatherData,
+                        image
                     })
                     })
         })

@@ -14,7 +14,9 @@ const weatherCode = (location, callback) => {
             console.log('Response from weather.js', response.data)
            response.data.success === 'false' || !response.data ? 
            callback('Unable to find location, try another search!', undefined) :
-           callback(undefined, `Today in ${response.data.location.name}, ${response.data.location.country}, is a ${response.data.current.weather_descriptions} day, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`)
+           callback(undefined, {
+               weatherData: `Today in ${response.data.location.name}, is a ${response.data.current.weather_descriptions} day, the temperature is ${response.data.current.temperature} and it feels like ${response.data.current.feelslike}`,
+            image: response.data.current.weather_icons[0]})
         })
         
     }
